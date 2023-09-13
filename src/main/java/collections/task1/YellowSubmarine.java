@@ -1,5 +1,7 @@
 package collections.task1;
 
+import java.util.Arrays;
+
 public class YellowSubmarine {
     private final static String TEXT = "In the town where I was born\n" +
             "Lived a man who sailed to sea\n" +
@@ -42,6 +44,35 @@ public class YellowSubmarine {
             "Yellow submarine, yellow submarine";
 
     public String textCleaner() {
-        return TEXT.replace("[,\n[:blank:]", "").toLowerCase();
+        return TEXT.replaceAll("[,()]", "")
+                .replace("\n", " ")
+                .toLowerCase();
+    }
+
+    public String[] textSplitter(String text) {
+        return text.split(" ");
+    }
+
+    public void countWord(String[] textWords) {
+        boolean[] alreadyOccurred = new boolean[textWords.length];
+        Arrays.fill(alreadyOccurred, false);
+
+        for(int i = 0; i < textWords.length; i++) {
+            String currentWord = textWords[i];
+            int count = 1;
+
+            if(alreadyOccurred[i]) {
+                continue;
+            }
+
+            for(int j = i+1; j < textWords.length; j++) {
+                if(currentWord.equals(textWords[j])) {
+                    alreadyOccurred[j] = true;
+                    count++;
+                }
+            }
+            alreadyOccurred[i] = true;
+            System.out.println(currentWord + " occurred " + count + " times");
+        }
     }
 }
