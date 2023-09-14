@@ -1,7 +1,6 @@
-package Collections.task2;
+package collections.task2;
 
 import collections.task1.YellowSubmarine;
-import collections.task2.YellowSubmarineCollections;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 

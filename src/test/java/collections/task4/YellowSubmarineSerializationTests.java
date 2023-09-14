@@ -1,7 +1,5 @@
-package Collections.task4;
+package collections.task4;
 
-import collections.task4.BeatlesException;
-import collections.task4.YellowSubmarineSerialization;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

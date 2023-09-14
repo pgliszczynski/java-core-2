@@ -1,6 +1,5 @@
-package Collections.task1;
+package collections.task1;
 
-import collections.task1.YellowSubmarine;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 

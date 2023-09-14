@@ -1,7 +1,6 @@
-package Collections.task3;
+package collections.task3;
 
 import collections.task1.YellowSubmarine;
-import collections.task3.YellowSubmarineRemover;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
