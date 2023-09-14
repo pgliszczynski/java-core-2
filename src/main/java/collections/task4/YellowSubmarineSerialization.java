@@ -1,7 +1,6 @@
 package collections.task4;
 
 import java.io.*;
-import java.util.Arrays;
 import java.util.stream.Collectors;
 
 public class YellowSubmarineSerialization {
@@ -15,6 +14,14 @@ public class YellowSubmarineSerialization {
             text = bufferedReader.lines().collect(Collectors.joining("\n"));
         } catch (IOException e) {
             System.out.println(e.getMessage());
+        }
+    }
+
+    public boolean textContains(String string) throws BeatlesException {
+        if (text.contains(string)) {
+            return true;
+        } else {
+            throw new BeatlesException();
         }
     }
 
