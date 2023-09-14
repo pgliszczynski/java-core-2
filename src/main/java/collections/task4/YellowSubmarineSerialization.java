@@ -14,7 +14,7 @@ public class YellowSubmarineSerialization {
                                 new FileInputStream(new File(fileName))))) {
             text = bufferedReader.lines().collect(Collectors.joining("\n"));
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
