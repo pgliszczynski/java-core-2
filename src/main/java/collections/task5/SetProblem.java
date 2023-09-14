@@ -1,6 +1,7 @@
 package collections.task5;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public class SetProblem {
@@ -28,6 +29,20 @@ public class SetProblem {
 
         public void setAge(int age) {
             this.age = age;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            User user = (User) o;
+            return age == user.age &&
+                    Objects.equals(name, user.name);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(name, age);
         }
     }
 
