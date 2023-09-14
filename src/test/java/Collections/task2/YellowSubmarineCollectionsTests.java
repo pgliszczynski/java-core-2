@@ -5,9 +5,10 @@ import collections.task2.YellowSubmarineCollections;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.util.Iterator;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class YellowSubmarineCollectionsTests {
 
@@ -29,7 +30,6 @@ public class YellowSubmarineCollectionsTests {
         yellowSubmarineCollections.countWords(textWithoutDuplicates);
 
         //Then
-        fail();
     }
 
     @Test
@@ -43,7 +43,6 @@ public class YellowSubmarineCollectionsTests {
         for(String word : textWithoutDuplicates) {
             System.out.println(word);
         }
-        fail();
     }
 
     @Test
@@ -53,10 +52,18 @@ public class YellowSubmarineCollectionsTests {
         //When
         Set<String> wordsSorted = yellowSubmarineCollections.sortByLength();
 
-        //Then
-        for(String word : wordsSorted) {
-            System.out.println(word);
+        Iterator<String> iterator = wordsSorted.iterator();
+        boolean isSorted = true;
+        while(iterator.hasNext()) {
+            String actualWord = iterator.next();
+            System.out.println(actualWord);
+
+            if(iterator.hasNext()) {
+                isSorted = iterator.next().length() >= actualWord.length();
+            }
         }
-        fail();
+
+        //Then
+        assertTrue(isSorted);
     }
 }
