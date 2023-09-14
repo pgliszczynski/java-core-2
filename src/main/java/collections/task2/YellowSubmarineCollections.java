@@ -10,7 +10,7 @@ public class YellowSubmarineCollections {
     }
 
     public Set<String> removeDuplicates() {
-        return new HashSet<String>(textWords);
+        return new HashSet<>(textWords);
     }
 
     public void countWords(Set<String> words) {
@@ -21,12 +21,12 @@ public class YellowSubmarineCollections {
     }
 
     public Set<String> sortByLength() {
-        Comparator<String> lengthComparator = new Comparator<String>() {
-            public int compare(String o1, String o2) {
-                return o1.length() - o2.length();
-            }
-        };
+        Comparator<String> lengthComparator =
+                Comparator.comparing(String::length)
+                            .thenComparing(Comparator.naturalOrder());
 
-        return new TreeSet<String>(lengthComparator);
+        Set<String> sortedWords = new TreeSet<>(lengthComparator);
+        sortedWords.addAll(textWords);
+        return sortedWords;
     }
 }
