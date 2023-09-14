@@ -5,9 +5,15 @@ import java.util.regex.Pattern;
 
 public class UuidFinder {
 
+    protected final Pattern pattern;
+    protected Matcher matcher;
+
+    public UuidFinder() {
+        this.pattern = Pattern.compile("orderUUID=([^ ]{36})");;
+    }
+
     public boolean findUuid(String text) {
-        Pattern pattern = Pattern.compile("orderUUID=([^ ]{36})");
-        Matcher matcher = pattern.matcher(text);
+        matcher = pattern.matcher(text);
         return matcher.find();
     }
 }
